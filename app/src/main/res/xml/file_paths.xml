@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-files-path
+        name="external_update_files"
+        path="Download/updates/" />
+    <files-path
+        name="internal_update_files"
+        path="updates/" />
+</paths>

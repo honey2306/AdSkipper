@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">开屏跳过</string>
+    <string name="accessibility_description">仅在应用启动后的短时间内识别明确的跳过按钮。控件不可用时，Android 11 及以上版本可能进行本地 OCR；截图仅在内存中处理并立即释放。所有识别均在本地完成，不保存或上传密码、聊天和网页内容。</string>
+</resources>
