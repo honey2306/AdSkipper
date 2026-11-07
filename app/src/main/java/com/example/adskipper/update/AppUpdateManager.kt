@@ -160,6 +160,8 @@ class AppUpdateManager(
 
         val archive = archivePackageInfo(file)
         require(archive.packageName == appContext.packageName) { "安装包包名不一致" }
+        require(PackageInfoCompat.getLongVersionCode(archive) == update.versionCode) { "安装包版本号不一致" }
+        require(archive.versionName == update.versionName) { "安装包版本名称不一致" }
         require(signatures(archive) == signatures(currentPackageInfo())) {
             "安装包签名与当前应用不一致，已拒绝安装"
         }
@@ -246,7 +248,9 @@ class AppUpdateManager(
                 }
 
                 else -> {
-                    throw IOException("更新服务器返回 HTTP ${connection.responseCode}")
+                    val error = IOException("更新服务器返回 HTTP ${connection.responseCode}")
+                    connection.disconnect()
+                    throw error
                 }
             }
         }
